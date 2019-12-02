@@ -77,7 +77,7 @@ const BlogPost = ({ data }) => {
         tags={post.tags}
         title={post.title}
         date={post.date}
-        author={post.author}
+       author={post.author}
       />
     </Layout>
   )

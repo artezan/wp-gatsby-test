@@ -8,24 +8,37 @@ module.exports = {
     {
       resolve: 'gatsby-source-wordpress',
       options: {
-        // The base url to your WP site.
-        baseUrl: 'wpdemo.gatsbycentral.com',
+        // The base url to your WP site. www.theartezan.xyz wpdemo.gatsbycentral.com
+        baseUrl: 'us-central1-kigali-162302.cloudfunctions.net/function-2',
         // WP.com sites set to true, WP.org set to false
         hostingWPCOM: false,
         // The protocol. This can be http or https.
         protocol: 'https',
         // Use 'Advanced Custom Fields' Wordpress plugin
         useACF: false,
-        auth: {},
+        auth: {
+          jwt_user: 'cesar',
+          jwt_pass: '180292',
+          jwt_base_path: "/jwt-auth/v1/token"
+        },
         // Set to true to debug endpoints on 'gatsby build'
         verboseOutput: false,
+        plugins: [
+          {
+            resolve: `gatsby-wordpress-inline-images`,
+            options: {
+              baseUrl: `us-central1-kigali-162302.cloudfunctions.net/function-2`,
+              protocol: `https`
+            }
+          }
+        ]
       },
     },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
       // Removes unused css rules
-      resolve:'gatsby-plugin-purgecss',
+      resolve: 'gatsby-plugin-purgecss',
       options: {
         // Activates purging in gatsby develop
         develop: true,
