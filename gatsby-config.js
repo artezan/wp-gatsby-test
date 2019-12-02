@@ -17,8 +17,8 @@ module.exports = {
         // Use 'Advanced Custom Fields' Wordpress plugin
         useACF: false,
         auth: {
-          jwt_user: 'cesar',
-          jwt_pass: '180292',
+          jwt_user: 'process.env.WP_USER',
+          jwt_pass: 'process.env.WP_PASSWORD',
           jwt_base_path: "/jwt-auth/v1/token"
         },
         // Set to true to debug endpoints on 'gatsby build'
