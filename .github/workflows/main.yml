@@ -15,6 +15,9 @@ jobs:
         node-version: '12.x'
         
     - name: Build Project
+      env:
+        WP_PASSWORD: ${{ secrets.WP_PASSWORD }}
+        WP_USER: ${{ secrets.WP_USER }}
       run: |
         npm install
         npm run build --if-present
