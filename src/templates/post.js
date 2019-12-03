@@ -39,7 +39,9 @@ export const BlogPostTemplate = ({
               ></Img>
             )}
             {/* wp cont normal */}
+            <span>Este es el bueno</span>
             <div dangerouslySetInnerHTML={{ __html: content }} />
+            <span>/Este es el bueno</span>
             {/* laisy img */}
             <span>WP Cont</span>
             {console.log('wpContent', wpContent)}

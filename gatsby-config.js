@@ -23,6 +23,7 @@ module.exports = {
         },
         // Set to true to debug endpoints on 'gatsby build'
         verboseOutput: false,
+        // Este es el bueno
         plugins: [
           {
             resolve: `gatsby-wordpress-inline-images`,
@@ -30,6 +31,8 @@ module.exports = {
               baseUrl: `www.theartezan.xyz`,
               protocol: `https`,
               postTypes: ['post', 'page'],
+              withWebp: true,
+              maxWidth: 350,
             },
           },
         ],
