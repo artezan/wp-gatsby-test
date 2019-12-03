@@ -6,7 +6,6 @@ import Layout from '../components/Layout'
 import parse from 'html-react-parser'
 import { renderToStaticMarkup } from 'react-dom/server'
 import Img from 'gatsby-image'
-import contentParser from 'gatsby-wpgraphql-inline-images'
 
 const pluginOptions = {
   wordPressUrl: `https://us-central1-kigali-162302.cloudfunctions.net/function-2/`,
@@ -21,7 +20,6 @@ export const BlogPostTemplate = ({
   date,
   author,
   featuredMedia,
-  wpContent
 }) => {
   return (
     <section className="section">
@@ -42,10 +40,6 @@ export const BlogPostTemplate = ({
             <span>Este es el bueno</span>
             <div dangerouslySetInnerHTML={{ __html: content }} />
             <span>/Este es el bueno</span>
-            {/* laisy img */}
-            <span>WP Cont</span>
-            {console.log('wpContent', wpContent)}
-            <div>{contentParser({ content: wpContent }, pluginOptions)}</div>
             {/* replace some cont */}
             <span> Cont</span>
             <div
@@ -113,14 +107,13 @@ BlogPostTemplate.propTypes = {
 }
 
 const BlogPost = ({ data }) => {
-  const { wordpressPost: post, wpgraphql } = data
+  const { wordpressPost: post } = data
 
   return (
     <Layout>
       <Helmet title={`${post.title} | Blog`} />
       <BlogPostTemplate
         content={post.content}
-        wpContent={wpgraphql.post.content}
         categories={post.categories}
         tags={post.tags}
         title={post.title}
@@ -148,7 +141,7 @@ export const pageQuery = graphql`
     date(formatString: "MMMM DD, YYYY")
     title
   }
-  query BlogPostByID($id: String!, $wpId: ID!) {
+  query BlogPostByID($id: String!) {
     wordpressPost(id: { eq: $id }) {
       id
       title
@@ -177,11 +170,6 @@ export const pageQuery = graphql`
       #     }
       #   }
       # }
-    }
-    wpgraphql {
-      post(id: $wpId) {
-        content
-      }
     }
   }
 `
