@@ -9,7 +9,7 @@ module.exports = {
       resolve: 'gatsby-source-wordpress',
       options: {
         // The base url to your WP site. www.theartezan.xyz wpdemo.gatsbycentral.com us-central1-kigali-162302.cloudfunctions.net/function-2
-        baseUrl: 'us-central1-kigali-162302.cloudfunctions.net/function-2',
+        baseUrl: 'www.theartezan.xyz',
         // WP.com sites set to true, WP.org set to false
         hostingWPCOM: false,
         // The protocol. This can be http or https.
@@ -27,7 +27,7 @@ module.exports = {
           {
             resolve: `gatsby-wordpress-inline-images`,
             options: {
-              baseUrl: `us-central1-kigali-162302.cloudfunctions.net/function-2`,
+              baseUrl: `www.theartezan.xyz`,
               protocol: `https`,
               postTypes: ['post', 'page'],
             },
@@ -43,16 +43,16 @@ module.exports = {
         // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
         fieldName: 'wpgraphql',
         // Url to query from
-        url: 'https://us-central1-kigali-162302.cloudfunctions.net/function-2/graphql',
+        url: 'https://www.theartezan.xyz/graphql',
       },
     },
     {
       resolve: 'gatsby-wpgraphql-inline-images',
       options: {
         wordPressUrl:
-          'https://us-central1-kigali-162302.cloudfunctions.net/function-2/',
+          'https://www.theartezan.xyz/',
         uploadsUrl:
-          'https://us-central1-kigali-162302.cloudfunctions.net/function-2/wp-content/uploads/',
+          'https://www.theartezan.xyz/wp-content/uploads/',
         processPostTypes: ['Post'],
         graphqlTypeName: 'WPGraphQL',
         generateWebp: true
