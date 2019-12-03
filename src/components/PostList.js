@@ -36,6 +36,7 @@ export default class IndexPage extends React.Component {
                     __html: post.excerpt.replace(/Continue reading.*/, ''),
                   }}
                 />
+                {console.log('excerpt', post.excerpt)}
                 <Link className="button is-small" to={post.slug}>
                   Keep Reading →
                 </Link>

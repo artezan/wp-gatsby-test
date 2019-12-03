@@ -60,6 +60,15 @@ exports.createPages = ({ actions, graphql }) => {
                 id
                 slug
                 status
+                wordpress_id
+              }
+            }
+          }
+          wpgraphql {
+            posts(first: 100000) {
+              nodes {
+                id
+                postId
               }
             }
           }
@@ -77,6 +86,7 @@ exports.createPages = ({ actions, graphql }) => {
 
       // In production builds, filter for only published posts.
       const allPosts = result.data.allWordpressPost.edges
+      const allPostsWP = result.data.wpgraphql.posts.nodes
       const posts =
         process.env.NODE_ENV === 'production'
           ? getOnlyPublished(allPosts)
@@ -85,11 +95,15 @@ exports.createPages = ({ actions, graphql }) => {
       // Iterate over the array of posts
       _.each(posts, ({ node: post }) => {
         // Create the Gatsby page for this WordPress post
+        const { id: wpId } =
+          allPostsWP.find(p => p.postId === post.wordpress_id) || {}
+        console.log('HERE', wpId)
         createPage({
           path: `/${post.slug}/`,
           component: postTemplate,
           context: {
             id: post.id,
+            wpId,
           },
         })
       })
