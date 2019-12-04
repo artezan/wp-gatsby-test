@@ -28,7 +28,7 @@ module.exports = {
           {
             resolve: `gatsby-wordpress-inline-images`,
             options: {
-              baseUrl: `uwww.theartezan.xyz`,
+              baseUrl: `www.theartezan.xyz`,
               protocol: `https`,
               postTypes: ['post', 'page'],
             },
