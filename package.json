@@ -20,7 +20,7 @@
     "gatsby-source-wordpress": "^3.1.31",
     "gatsby-transformer-remark": "^2.6.22",
     "gatsby-transformer-sharp": "^2.2.14",
-    "gatsby-wordpress-inline-images": "^1.0.0",
+    "gatsby-wordpress-inline-images": "^1.2.0",
     "gatsby-wpgraphql-inline-images": "^0.2.3",
     "html-react-parser": "^0.10.0",
     "lodash": "^4.17.5",
